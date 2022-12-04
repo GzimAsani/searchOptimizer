@@ -16,4 +16,4 @@ services:
         firnDatabase:
         name: mysite
         property: connectionString
-    plan: free
+plan: free
