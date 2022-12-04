@@ -30,11 +30,6 @@
   }
 
   #articles {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
-
     .nothing-found {
       font-size: 2rem;
       margin: 6rem;
