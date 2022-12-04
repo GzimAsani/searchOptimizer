@@ -10,7 +10,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+<body>
+    <nav>
+      <ul>
+        <li><%= link_to 'Articles', root_path %></li>
+        <li>G-P</li>
+        <li><%= link_to 'Trending', search_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
+  <footer>
+  GP
+  </footer>
 </html>

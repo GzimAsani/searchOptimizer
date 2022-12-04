@@ -20,11 +20,12 @@ class ArticleController < ApplicationController
     recent_search.session_id = session
     session_search = Search.where(session_id: session).last
 
-  if session_search.query.length < query.length
-    session_search.update(query: query)
-    
-   elsif session_search.nil? || !session_search.searched?(query)
+  if     session_search.nil? || !session_search.searched?(query)
     recent_search.save
+    
+   elsif session_search.query.length < query.length
+    session_search.update(query: query) 
+
 
    end
   end
