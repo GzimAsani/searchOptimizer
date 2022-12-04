@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: searchOptimizer_production
   username: searchOptimizer
   password: <%= ENV["SEARCHOPTIMIZER_DATABASE_PASSWORD"] %>
