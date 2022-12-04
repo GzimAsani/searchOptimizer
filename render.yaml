@@ -15,6 +15,4 @@ services:
         formDatabase:
           name: postgres
           property: connectionString
-    ipAllowList: []
     plan: free
-    maxemoryPolicy: noeviction
