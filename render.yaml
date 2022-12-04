@@ -1,0 +1,23 @@
+databases:
+  - name: mysite
+    databaseName: mysite
+    user: mysite
+
+services:
+  - type: web
+    name: mysite
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+      - key: RAILS_MASTER_KEY
+        sync: false
+        firnDatabase:
+        name: mysite
+        property: connectionString
+- type: redis
+  name: redis
+  ipAllowList: []
+  plan: free
+  maxmemoryPolicty: noeviction

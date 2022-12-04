@@ -7,7 +7,7 @@ describe 'Articles', type: :feature do
     50.times do
       Search.create(
         query: "title#{idx}",
-        session_id: session_id
+        session_id:
       )
     end
   end
@@ -22,7 +22,7 @@ describe 'Articles', type: :feature do
       2.times do
         Search.create(
           query: "query#{n}",
-          session_id: session_id
+          session_id:
         )
       end
     end
@@ -37,14 +37,14 @@ describe 'Articles', type: :feature do
       2.times do
         Search.create(
           query: "query#{n}",
-          session_id: session_id
+          session_id:
         )
       end
     end
 
     Search.create(
       query: 'least_used',
-      session_id: session_id
+      session_id:
     )
     visit '/search'
     expect(page).to_not have_content('least_used')

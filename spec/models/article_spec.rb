@@ -8,19 +8,17 @@ describe 'Articles', type: :feature do
   long_paragraph = Faker::Lorem.paragraph(sentence_count: 300)
 
   it 'is not valid if body is more than 300' do
-    article = Article.new(title: title, body: long_paragraph)
+    article = Article.new(title:, body: long_paragraph)
     expect(article).to_not be_valid
   end
-
 
   it 'is not valid if title is less than 5' do
     article = Article.new(title: short_paragraph, body: paragraph)
     expect(article).to_not be_valid
   end
 
-
   it 'is valid with valid data' do
-    article = Article.new(title: title, body: paragraph)
+    article = Article.new(title:, body: paragraph)
     expect(article).to be_valid
   end
 
@@ -30,12 +28,12 @@ describe 'Articles', type: :feature do
   end
 
   it 'is not valid without body' do
-    article = Article.new(title: title)
+    article = Article.new(title:)
     expect(article).to_not be_valid
   end
 
   it 'is not valid if body is less than 10' do
-    article = Article.new(title: title, body: short_paragraph)
+    article = Article.new(title:, body: short_paragraph)
     expect(article).to_not be_valid
   end
 

@@ -7,7 +7,7 @@ class ArticleController < ApplicationController
 
   def search
     articles = Article.where('lower(title) LIKE ?', "%#{params[:query].downcase}%").first(60)
-    render(partial: 'articles', locals: { articles: articles })
+    render(partial: 'articles', locals: { articles: })
     save_search(params[:query], session[:user_id])
   end
 
@@ -20,14 +20,13 @@ class ArticleController < ApplicationController
     recent_search.session_id = session
     session_search = Search.where(session_id: session).last
 
-  if     session_search.nil? || !session_search.searched?(query)
-    recent_search.save
-    
-   elsif session_search.query.length < query.length
-    session_search.update(query: query) 
+    if session_search.nil? || !session_search.searched?(query)
+      recent_search.save
 
+    elsif session_search.query.length < query.length
+      session_search.update(query:)
 
-   end
+    end
   end
 
   def user_params
