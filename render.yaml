@@ -16,4 +16,8 @@ services:
         firnDatabase:
         name: mysite
         property: connectionString
-plan: free
+- type: redis
+  name: redis
+  ipAllowList: []
+  plan: free
+  maxmemoryPolicty: noeviction
