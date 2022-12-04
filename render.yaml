@@ -11,9 +11,9 @@ services:
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: mysite
-          property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+        firnDatabase:
+        name: mysite
+        property: connectionString
     plan: free
